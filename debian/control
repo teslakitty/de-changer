@@ -1,0 +1,14 @@
+Source: de-changer
+Section: utils
+Priority: optional
+Maintainer: teslakitty <jameskuyt655@gmail.com>
+Build-Depends: debhelper-compat (= 12), nodejs, npm
+Standards-Version: 4.6.0
+Homepage: https://github.com/teslakitty/de-changer
+Vcs-Browser: https://github.com/teslakitty/de-changer
+Vcs-Git: https://github.com/teslakitty/de-changer.git
+
+Package: de-changer
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libgtk-3-0, libnss3, libasound2, libxtst6, libxss1, libatk-bridge2.0-0, libdrm-amdgpu1, libgbm1
+Description: An Electron application to help CatOS users install Desktop Environments.

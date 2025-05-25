@@ -1,0 +1,60 @@
+#!/usr/bin/make -f
+
+# Minimal rules file for Electron Builder generated packages
+# This assumes electron-builder handles the actual build.
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# Electron builder takes care of the build step
+	npm run build
+
+override_dh_auto_install:
+	# Install the electron-builder created .deb
+	# This rule is sometimes overridden to copy files directly
+	# Instead, we'll use dh_install later.
+	dh_auto_install
+
+override_dh_install:
+	# Copy the electron-builder unpacked app to debian/de-changer/usr/lib/de-changer
+	mkdir -p $(CURDIR)/debian/de-changer/usr/lib/de-changer
+	cp -r $(CURDIR)/../dist/linux-unpacked/* $(CURDIR)/debian/de-changer/usr/lib/de-changer/
+
+	# Create a symlink in /usr/bin to the app executable
+	mkdir -p $(CURDIR)/debian/de-changer/usr/bin
+	ln -sf /usr/lib/de-changer/de-changer $(CURDIR)/debian/de-changer/usr/bin/de-changer
+
+	# Install desktop file and icon
+	mkdir -p $(CURDIR)/debian/de-changer/usr/share/applications/
+	cp $(CURDIR)/../dist/DE\ Changer.desktop $(CURDIR)/debian/de-changer/usr/share/applications/de-changer.desktop
+	mkdir -p $(CURDIR)/debian/de-changer/usr/share/icons/hicolor/256x256/apps/
+	cp $(CURDIR)/../build/icon.png $(CURDIR)/debian/de-changer/usr/share/icons/hicolor/256x256/apps/de-changer.png
+
+	# Note: The .desktop file and icon paths/names might need slight adjustments
+	# if electron-builder changes how it names or places them in 'dist/'.
+	# Ensure the .desktop file points to the correct executable name.
+
+override_dh_strip:
+	dh_strip --exclude=electron --exclude=ffmpeg
+
+override_dh_fixperms:
+	dh_fixperms
+
+override_dh_installdeb:
+	dh_installdeb
+
+override_dh_compress:
+	dh_compress
+
+override_dh_shlibdeps:
+	dh_shlibdeps
+
+override_dh_gencontrol:
+	dh_gencontrol
+
+override_dh_builddeb:
+	dh_builddeb
+
+override_dh_clean:
+	dh_clean

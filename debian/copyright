@@ -1,0 +1,11 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: DE Changer
+Upstream-Contact: teslakitty <jameskuyt655@gmail.com>
+Source: https://github.com/teslakitty/de-changer
+
+Files: *
+Copyright: 2025 teslakitty <jameskuyt655@gmail.com>
+License: MIT
+ This program comes with ABSOLUTELY NO WARRANTY; for details see file LICENSE.
+ This is free software, and you are welcome to redistribute it
+ under certain conditions; see file COPYING for details.
