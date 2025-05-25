@@ -5,7 +5,11 @@
   "keywords": ["CatOS", "Desktop Environment", "Installer", "Utility"],
   "main": "main.js",
   "version": "1.0.0",
-  "author": "teslakitty",
+  "author": {
+    "name": "teslakitty",
+    "email": "jameskuyt655@gmail.com"
+  },
+  "homepage": "https://github.com/teslakitty/de-changer",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
@@ -32,7 +36,7 @@
       "package.json"
     ],
     "linux": {
-      "target": ["deb", "AppImage"],
+      "target": ["deb", "AppImage", "snap", "tar.gz", "dir", "x86_64"],
       "category": "Utility",
       "icon": "build/icon.png"
     },
