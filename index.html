@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CatOS DE Installer Guide</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f8f8f8; color: #333; }
+        h1 { color: #222; }
+        .de-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .de-card h2 { margin-top: 0; color: #007bff; }
+        .installed-status { font-weight: bold; }
+        .installed { color: green; }
+        .not-installed { color: orange; }
+        .install-command-container {
+            margin-top: 10px;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .install-command {
+            flex-grow: 1;
+            font-family: monospace;
+            background-color: #e0e0e0;
+            padding: 5px 8px;
+            border-radius: 3px;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-right: 10px;
+        }
+        .copy-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .copy-btn:hover { background-color: #218838; }
+        #loading-message { font-style: italic; color: #555; }
+        #instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            border-radius: 8px;
+        }
+        #instructions h3 { color: #0056b3; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>CatOS Desktop Environment Installer Guide</h1>
+    <p>Discover and install other Desktop Environments for your CatOS.</p>
+
+    <div id="loading-message">Loading DE information...</div>
+    <div id="de-list-container">
+        </div>
+
+    <button id="refresh-de">Refresh List</button>
+
+    <div id="instructions">
+        <h3>How to Install a Desktop Environment:</h3>
+        <ol>
+            <li>For any "Not Installed" DE below, click the "Copy Command" button.</li>
+            <li>**Open a Terminal** (usually `Ctrl + Alt + T`).</li>
+            <li>**Paste the copied command** into the terminal.</li>
+            <li>Press Enter. You will be prompted to enter your **user password**.</li>
+            <li>Follow any on-screen prompts in the terminal (e.g., confirm installation with `Y`).</li>
+            <li>Once the installation is complete, **restart your computer** or **log out**.</li>
+            <li>At the login screen, look for a small icon (often a gear, settings cog, or session selector) usually near your username or at the bottom of the screen. Select your newly installed DE from there.</li>
+        </ol>
+    </div>
+
+    <script src="./renderer.js"></script>
+</body>
+</html>

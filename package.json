@@ -1,0 +1,52 @@
+{
+  "name": "de-changer",
+  "productName": "DE Changer",
+  "description": "An Electron application to help CatOS users install Desktop Environments.",
+  "keywords": ["CatOS", "Desktop Environment", "Installer", "Utility"],
+  "main": "main.js",
+  "version": "1.0.0",
+  "author": "teslakitty",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "36.3.1",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+
+  },
+  "build": {
+    "appId": "com.teslakitty.dechanger",
+    "productName": "DE Changer",
+    "copyright": "Copyright © 2025 teslakitty",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "package.json"
+    ],
+    "linux": {
+      "target": ["deb", "AppImage"],
+      "category": "Utility",
+      "icon": "build/icon.png"
+    },
+    "deb": {
+      "depends": [
+        "libgtk-3-0",
+        "libnss3",
+        "libasound2",
+        "libxtst6",
+        "libxss1",
+        "libatk-bridge2.0-0",
+        "libdrm-amdgpu1",
+        "libgbm1"
+      ]
+    }
+  }
+}
